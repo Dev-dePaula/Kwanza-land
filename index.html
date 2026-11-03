@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="pt-AO" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KwanzaPay - O Futuro dos Pagamentos em Angola</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            black: '#04090E',
+                            dark: '#0A131C',
+                            navy: '#102B46',
+                            emerald: '#27D68B',
+                            emeraldGlow: '#00FF87',
+                            orange: '#FF6A00',
+                            orangeGlow: '#FF8800',
+                            card: 'rgba(16, 43, 70, 0.4)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neon-emerald': '0 0 25px rgba(39, 214, 139, 0.4), 0 0 50px rgba(0, 255, 135, 0.2)',
+                        'neon-orange': '0 0 25px rgba(255, 106, 0, 0.4), 0 0 50px rgba(255, 136, 0, 0.2)',
+                        'cyber-card': '0 8px 32px 0 rgba(0, 0, 0, 0.5)',
+                    },
+                    keyframes: {
+                        laserScan: {
+                            '0%, 100%': { top: '0%' },
+                            '50%': { top: '90%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-12px) rotate(1deg)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.9' },
+                        },
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    },
+                    animation: {
+                        'laser-scan': 'laserScan 2.5s ease-in-out infinite',
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Estilos e Efeitos Futuristas Avançados */
+        body {
+            background-color: #04090E;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+
+        /* Perspective Tilt 3D Container */
+        .tilt-container {
+            perspective: 1200px;
+        }
+        .tilt-card {
+            transition: transform 0.15s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        /* Glassmorphism Cyber Card */
+        .glass-cyber {
+            background: linear-gradient(135deg, rgba(16, 43, 70, 0.5) 0%, rgba(6, 17, 28, 0.7) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(39, 214, 139, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-cyber-orange {
+            background: linear-gradient(135deg, rgba(255, 106, 0, 0.15) 0%, rgba(10, 19, 28, 0.8) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 106, 0, 0.3);
+        }
+
+        .glass-header {
+            background: rgba(4, 9, 14, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(39, 214, 139, 0.15);
+        }
+
+        /* Cyberpunk Mesh Grid Background */
+        .cyber-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(39, 214, 139, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(39, 214, 139, 0.04) 1px, transparent 1px);
+        }
+
+        /* Glowing Text Gradient */
+        .text-glow-emerald {
+            text-shadow: 0 0 15px rgba(39, 214, 139, 0.6);
+        }
+        .text-glow-orange {
+            text-shadow: 0 0 15px rgba(255, 106, 0, 0.6);
+        }
+
+        /* Neon Shimmer Button Effect */
+        .btn-neon-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-neon-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 70%
+            );
+            transform: rotate(30deg) translateX(-100%);
+            transition: transform 0.8s ease-in-out;
+        }
+        .btn-neon-shimmer:hover::after {
+            transform: rotate(30deg) translateX(100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #04090E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #102B46;
+            border-radius: 4px;
+            border: 1px solid rgba(39, 214, 139, 0.3);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #27D68B;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-cyber-emerald selection:text-cyber-black">
+
+    <!-- CANVAS INTERATIVO DE PARTÍCULAS EM BACKGROUND -->
+    <canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- HEADER FUTURISTA GLASSMORPHIC -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-header transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Holográfica -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-11 h-11 rounded-xl bg-cyber-navy flex items-center justify-center border border-cyber-emerald/40 shadow-neon-emerald group-hover:scale-105 transition-transform overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-cyber-emerald/20 to-cyber-orange/20 animate-pulse-glow"></div>
+                    <!-- Custom Futuristic K Icon -->
+                    <svg class="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4V20" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M18 4L8 12L18 20" stroke="#27D68B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 14L10 20" stroke="#FF6A00" stroke-width="3.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-black text-2xl tracking-wider text-white">Kwanza<span class="text-cyber-emerald text-glow-emerald">Pay</span></span>
+                    <span class="text-[9px] font-mono tracking-widest text-cyber-orange uppercase">POWERED BY ECOMULTI</span>
+                </div>
+            </a>
+
+            <!-- Navegação Desktop Cyberpunk -->
+            <nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-slate-300">
+                <a href="#como-funciona" class="hover:text-cyber-emerald transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-cyber-emerald hover:after:w-full after:transition-all">Como Funciona</a>
+                <a href="#mercado" class="hover:text-cyber-emerald transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-cyber-emerald hover:after:w-full after:transition-all">O Mercado</a>
+                <a href="#vantagens" class="hover:text-cyber-emerald transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-cyber-emerald hover:after:w-full after:transition-all">Balcão vs Online</a>
+                <a href="#simulador" class="hover:text-cyber-emerald transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-cyber-emerald hover:after:w-full after:transition-all">Simulador</a>
+                <a href="#precos" class="hover:text-cyber-emerald transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-cyber-emerald hover:after:w-full after:transition-all">Preços</a>
+            </nav>
+
+            <!-- CTA Header -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#demonstracao" class="btn-neon-shimmer bg-cyber-orange hover:bg-cyber-orangeGlow text-white font-mono font-bold px-6 py-2.5 rounded-xl shadow-neon-orange transition-all hover:scale-105 text-xs tracking-wider flex items-center gap-2 border border-cyber-orangeGlow/50">
+                    <span>AGENDAR DEMO</span>
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-cyber-emerald p-2">
+                <i data-lucide="cpu" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-cyber border-t border-cyber-emerald/20 px-6 py-6 space-y-4 font-mono text-sm">
+            <a href="#como-funciona" class="block text-slate-300 hover:text-cyber-emerald py-1">:: COMO FUNCIONA</a>
+            <a href="#mercado" class="block text-slate-300 hover:text-cyber-emerald py-1">:: O MERCADO ANGOLANO</a>
+            <a href="#vantagens" class="block text-slate-300 hover:text-cyber-emerald py-1">:: MODALIDADES DE USO</a>
+            <a href="#simulador" class="block text-slate-300 hover:text-cyber-emerald py-1">:: SIMULADOR DE LUCRO</a>
+            <a href="#precos" class="block text-slate-300 hover:text-cyber-emerald py-1">:: TABELA DE PREÇOS</a>
+            <a href="#demonstracao" class="block w-full text-center bg-cyber-orange text-white font-bold py-3 rounded-xl shadow-neon-orange mt-4">
+                SOLICITAR DEMONSTRAÇÃO
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION - ULTRA FUTURISTA -->
+    <section class="relative pt-32 pb-24 md:pt-40 md:pb-36 cyber-grid overflow-hidden">
+        <!-- Radial Glowing Orbs Background -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyber-emerald/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cyber-orange/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Left Text -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-8">
+                    
+                    <!-- Tech Tag -->
+                    <div class="inline-flex items-center gap-3 glass-cyber px-4 py-2 rounded-full border border-cyber-emerald/40 text-cyber-emerald text-xs font-mono tracking-widest uppercase shadow-neon-emerald">
+                        <span class="w-2.5 h-2.5 rounded-full bg-cyber-emeraldGlow animate-ping"></span>
+                        <i data-lucide="smartphone-charging" class="w-4 h-4"></i>
+                        PAGAMENTOS SEM TPA FÍSICO EM ANGOLA
+                    </div>
+
+                    <!-- Main Futuristic Headline -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05]">
+                        Receba no ritmo do <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-emerald via-cyber-emeraldGlow to-teal-200 text-glow-emerald">seu negócio.</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        Cobrança instantânea por <strong class="text-white font-semibold">QR Code em Kwanzas</strong> no balcão presencial e vendas online. Transforme o telemóvel na sua caixa registadora.
+                    </p>
+
+                    <!-- CTAs Interactive -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-2">
+                        <a href="#demonstracao" class="btn-neon-shimmer w-full sm:w-auto bg-cyber-orange hover:bg-cyber-orangeGlow text-white font-mono font-bold px-8 py-4 rounded-2xl shadow-neon-orange transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3 border border-cyber-orangeGlow/60 text-sm tracking-wider">
+                            <span>PEDIR DEMONSTRAÇÃO</span>
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5"></i>
+                        </a>
+
+                        <a href="#simulador" class="w-full sm:w-auto glass-cyber hover:bg-cyber-navy/80 text-white font-mono font-semibold px-7 py-4 rounded-2xl border border-cyber-emerald/30 hover:border-cyber-emerald transition-all text-sm flex items-center justify-center gap-3 shadow-cyber-card">
+                            <i data-lucide="calculator" class="w-5 h-5 text-cyber-emerald"></i>
+                            <span>SIMULAR RESULTADOS</span>
+                        </a>
+                    </div>
+
+                    <!-- Cyber Badges -->
+                    <div class="pt-8 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-8 font-mono text-xs text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-cyber-emerald"></i>
+                            <span>100% EM KWANZAS (KZ)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="zap" class="w-4 h-4 text-cyber-orange"></i>
+                            <span>NOTIFICAÇÃO NA HORA</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
+                            <span>MULTICAIXA EXPRESS COMPATÍVEL</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Hero Right: 3D INTERACTIVE TILT PHONE MOCKUP -->
+                <div class="lg:col-span-5 flex justify-center tilt-container">
+                    <div id="hero-tilt-card" class="tilt-card relative w-full max-w-[340px] animate-float-slow">
+                        
+                        <!-- Glowing Halo Behind Phone -->
+                        <div class="absolute -inset-6 bg-gradient-to-r from-cyber-emerald/40 via-cyan-500/20 to-cyber-orange/30 rounded-[3.5rem] blur-3xl opacity-80 animate-pulse-glow"></div>
+
+                        <!-- Main Smartphone Hardware Mockup -->
+                        <div class="relative bg-slate-950 p-4 rounded-[3rem] border-2 border-cyber-emerald/50 shadow-neon-emerald">
+                            
+                            <!-- Dynamic Hologram Island Notch -->
+                            <div class="absolute top-7 left-1/2 -translate-x-1/2 w-28 h-4 bg-slate-900 rounded-full z-40 border border-slate-800 flex items-center justify-center">
+                                <div class="w-2 h-2 rounded-full bg-cyber-emerald animate-pulse"></div>
+                            </div>
+
+                            <!-- Screen Container -->
+                            <div class="bg-cyber-dark rounded-[2.3rem] pt-8 pb-6 px-4 text-white overflow-hidden relative min-h-[520px] flex flex-col justify-between border border-slate-800">
+                                
+                                <!-- Scanner Laser Animation Line -->
+                                <div class="absolute left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyber-emeraldGlow to-transparent shadow-neon-emerald animate-laser-scan z-30 pointer-events-none"></div>
+
+                                <!-- Mobile Header -->
+                                <div class="flex items-center justify-between pt-2 pb-4 px-2 border-b border-slate-800/80">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-7 h-7 rounded-lg bg-cyber-emerald text-cyber-black font-black flex items-center justify-center text-xs">K</div>
+                                        <span class="font-bold text-sm tracking-wide">KwanzaPay</span>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-cyber-emerald bg-cyber-emerald/10 px-2 py-0.5 rounded-full border border-cyber-emerald/30">AO ONLINE</span>
+                                </div>
+
+                                <!-- Main Screen Body (Live Hologram Payment Card) -->
+                                <div class="my-auto py-4 text-center space-y-4 relative z-10">
+                                    
+                                    <!-- Animated Success Icon -->
+                                    <div class="w-16 h-16 mx-auto rounded-full bg-cyber-emerald/20 border-2 border-cyber-emerald flex items-center justify-center shadow-neon-emerald">
+                                        <i data-lucide="check-circle" class="w-9 h-9 text-cyber-emeraldGlow"></i>
+                                    </div>
+
+                                    <div>
+                                        <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400">PAGAMENTO RECEBIDO</span>
+                                        <h3 class="text-xl font-bold text-white">5.000 Kz</h3>
+                                    </div>
+
+                                    <!-- QR CODE DYNAMIC SCAN TARGET -->
+                                    <div class="relative inline-block bg-white p-3 rounded-2xl shadow-2xl border-2 border-cyber-emerald">
+                                        <div class="w-28 h-28 bg-slate-900 rounded-lg p-1.5 flex items-center justify-center relative overflow-hidden">
+                                            <!-- SVG Simulated Interactive QR -->
+                                            <svg viewBox="0 0 100 100" class="w-full h-full text-cyber-emerald fill-current">
+                                                <rect x="5" y="5" width="30" height="30" rx="4" />
+                                                <rect x="65" y="5" width="30" height="30" rx="4" />
+                                                <rect x="5" y="65" width="30" height="30" rx="4" />
+                                                <rect x="40" y="40" width="20" height="20" fill="#FF6A00" />
+                                                <rect x="45" y="10" width="10" height="20" />
+                                                <rect x="70" y="70" width="25" height="25" fill="#27D68B" />
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-[11px] font-mono text-slate-300">
+                                        LOJA: <span class="text-cyber-emerald">Mark Seller ECOMULTI</span>
+                                    </div>
+                                </div>
+
+                                <!-- Mobile Footer Badge -->
+                                <div class="bg-cyber-navy/80 py-2.5 text-center rounded-xl text-[10px] font-mono text-slate-300 border border-cyber-emerald/20">
+                                    CONFIRMAÇÃO INSTANTÂNEA • QR CODE
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO O MERCADO ANGOLANO - CONTADORES ANIMADOS -->
+    <section id="mercado" class="py-24 bg-cyber-dark relative border-y border-cyber-emerald/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="inline-flex items-center gap-2 text-cyber-emerald font-mono text-xs tracking-widest uppercase">
+                    <i data-lucide="line-chart" class="w-4 h-4"></i>
+                    DADOS OFICIAIS DO MERCADO ANGOLANO
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Os angolanos já pagam pelo telemóvel</h2>
+                <p class="text-slate-400 text-base font-light">O comportamento de consumo em Angola mudou radicalmente. O pagamento por smartphone é o novo padrão.</p>
+            </div>
+
+            <!-- Grid de Métricas Futuras -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-4xl mx-auto">
+                
+                <!-- Stat Card 1 -->
+                <div class="glass-cyber p-8 rounded-3xl border border-cyber-emerald/30 hover:border-cyber-emerald transition-all shadow-cyber-card group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-cyber-emerald/10 border border-cyber-emerald/40 flex items-center justify-center text-cyber-emerald group-hover:scale-110 transition-transform">
+                            <i data-lucide="users" class="w-7 h-7"></i>
+                        </div>
+                        <span class="text-xs font-mono text-slate-400">FONTE: EMIS (1.º SEM 2026)</span>
+                    </div>
+                    
+                    <div class="flex items-baseline gap-2">
+                        <span id="counter-users" class="text-5xl sm:text-6xl font-black text-white font-mono text-glow-emerald">0.0</span>
+                        <span class="text-3xl font-extrabold text-cyber-emerald">Milhões</span>
+                    </div>
+                    <p class="text-cyber-emerald font-mono text-sm mt-2">Utilizadores de MULTICAIXA Express</p>
+                    <p class="text-slate-400 text-xs mt-4 leading-relaxed font-light">
+                        Milhões de clientes prontos para ler o QR Code do seu estabelecimento diretamente na app do seu banco.
+                    </p>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="glass-cyber-orange p-8 rounded-3xl border border-cyber-orange/30 hover:border-cyber-orange transition-all shadow-cyber-card group">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-cyber-orange/10 border border-cyber-orange/40 flex items-center justify-center text-cyber-orange group-hover:scale-110 transition-transform">
+                            <i data-lucide="trending-up" class="w-7 h-7"></i>
+                        </div>
+                        <span class="text-xs font-mono text-slate-400">CRESCIMENTO ANUAL</span>
+                    </div>
+                    
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-4xl font-black text-cyber-orange">+</span>
+                        <span id="counter-growth" class="text-5xl sm:text-6xl font-black text-white font-mono text-glow-orange">0</span>
+                        <span class="text-4xl font-black text-cyber-orange">%</span>
+                    </div>
+                    <p class="text-cyber-orange font-mono text-sm mt-2">Aumento nas operações móveis</p>
+                    <p class="text-slate-400 text-xs mt-4 leading-relaxed font-light">
+                        Crescimento em relação ao período anterior. Quem não aceita pagamentos móveis fica para trás.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECÇÃO COMO FUNCIONA (3 PASSOS NEON) -->
+    <section id="como-funciona" class="py-24 bg-cyber-black relative cyber-grid">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <span class="text-xs font-mono text-cyber-orange uppercase tracking-widest">FLUXO HIPER-SIMPLIFICADO</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Três gestos e a venda está feita</h2>
+                <p class="text-slate-400 text-base">Sem falhas de rede de terminais físicos nem complicações com papéis.</p>
+            </div>
+
+            <!-- Timeline / Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Passo 1 -->
+                <div class="glass-cyber p-8 rounded-3xl border border-slate-800 hover:border-cyber-emerald/50 transition-all relative group">
+                    <div class="w-12 h-12 rounded-xl bg-cyber-navy text-cyber-emerald border border-cyber-emerald/40 font-mono font-bold flex items-center justify-center text-lg mb-6 shadow-neon-emerald">
+                        01
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        GERA
+                        <i data-lucide="qr-code" class="w-5 h-5 text-cyber-emerald"></i>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed font-light">
+                        O comerciante introduz o valor em kwanzas na aplicação KwanzaPay no seu telemóvel e o QR Code aparece imediatamente.
+                    </p>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="glass-cyber p-8 rounded-3xl border border-slate-800 hover:border-cyber-orange/50 transition-all relative group">
+                    <div class="w-12 h-12 rounded-xl bg-cyber-navy text-cyber-orange border border-cyber-orange/40 font-mono font-bold flex items-center justify-center text-lg mb-6 shadow-neon-orange">
+                        02
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        LÊ E PAGA
+                        <i data-lucide="smartphone" class="w-5 h-5 text-cyber-orange"></i>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed font-light">
+                        O cliente abre o app do seu banco habitual ou MULTICAIXA Express, aponta para o ecrã e confirma a operação.
+                    </p>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="glass-cyber p-8 rounded-3xl border border-slate-800 hover:border-cyber-emerald/50 transition-all relative group">
+                    <div class="w-12 h-12 rounded-xl bg-cyber-navy text-cyber-emeraldGlow border border-cyber-emeraldGlow/40 font-mono font-bold flex items-center justify-center text-lg mb-6 shadow-neon-emerald">
+                        03
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        CONFIRMA
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-cyber-emeraldGlow"></i>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed font-light">
+                        O comerciante visualiza o sinal verde de pagamento confirmado no mesmo ecrã no preciso segundo.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECÇÃO PRESENCIAL VS ONLINE -->
+    <section id="vantagens" class="py-24 bg-cyber-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-mono text-cyber-emerald uppercase tracking-widest">VERSATILIDADE TOTAL</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">No Balcão e nas Vendas Online</h2>
+                <p class="text-slate-400 text-base">Criado para se adaptar perfeitamente a qualquer modelo de negócio comercial em Angola.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Balcão Presencial -->
+                <div class="glass-cyber p-8 sm:p-10 rounded-3xl border border-cyber-emerald/30 relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-2xl bg-cyber-emerald/10 text-cyber-emerald flex items-center justify-center mb-6">
+                        <i data-lucide="store" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-mono text-cyber-emerald uppercase">MODALIDADE 01</span>
+                    <h3 class="text-2xl font-bold text-white mt-1 mb-4">Loja Física & Balcão</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+                        Apresente o QR Code no smartphone da caixa ou num display expositor. O cliente encosta o seu próprio telemóvel e conclui a compra sem filas.
+                    </p>
+                    <ul class="space-y-3 font-mono text-xs text-slate-300 border-t border-slate-800 pt-6">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cyber-emerald"></i>
+                            Elimina custos de bobinas de papel e manutenção de TPA
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cyber-emerald"></i>
+                            Maior segurança para operadores de caixa
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Online & Entregas -->
+                <div class="glass-cyber-orange p-8 sm:p-10 rounded-3xl border border-cyber-orange/30 relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-2xl bg-cyber-orange/10 text-cyber-orange flex items-center justify-center mb-6">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-mono text-cyber-orange uppercase">MODALIDADE 02</span>
+                    <h3 class="text-2xl font-bold text-white mt-1 mb-4">Vendas Online & Redes Sociais</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+                        Venda através do Instagram, WhatsApp ou Website com links/QR Codes dinâmicos. O cliente paga e recebe a confirmação imediata no telemóvel.
+                    </p>
+                    <ul class="space-y-3 font-mono text-xs text-slate-300 border-t border-slate-800 pt-6">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cyber-orange"></i>
+                            Perfeito para entregas ao domicílio (Delivery)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-cyber-orange"></i>
+                            Validação imediata para despacho do produto
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SIMULADOR INTERATIVO HOLOGRÁFICO (CALCULADORA DE LUCRO) -->
+    <section id="simulador" class="py-24 bg-cyber-black relative border-y border-cyber-emerald/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 text-cyber-emerald font-mono text-xs tracking-widest uppercase">
+                    <i data-lucide="cpu" class="w-4 h-4"></i>
+                    CALCULADORA DE RETORNO EM TEMPO REAL
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Simulador de Transações</h2>
+                <p class="text-slate-400 text-base">Calcule o impacto financeiro exato das taxas KwanzaPay no seu faturamento mensal.</p>
+            </div>
+
+            <!-- Interactive Widget Card -->
+            <div class="max-w-4xl mx-auto glass-cyber p-8 sm:p-12 rounded-3xl border border-cyber-emerald/40 shadow-neon-emerald">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Controls Left -->
+                    <div class="lg:col-span-7 space-y-8">
+                        
+                        <!-- Input Valor Venda -->
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-widest text-slate-300 mb-3">
+                                Valor Médio de Cada Venda (Kz)
+                            </label>
+                            <div class="relative">
+                                <input type="number" id="sim-valor" value="5000" min="500" step="500" 
+                                    class="w-full bg-slate-950 border-2 border-cyber-emerald/40 rounded-2xl px-5 py-4 text-white font-mono font-bold text-xl focus:outline-none focus:border-cyber-emerald transition-colors">
+                                <span class="absolute right-5 top-1/2 -translate-y-1/2 text-cyber-emerald font-mono font-bold">KZ</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider Quantidade Vendas -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3 font-mono text-xs">
+                                <span class="text-slate-300 uppercase">Volume de Vendas / Mês</span>
+                                <span id="sim-qtd-label" class="text-cyber-emerald font-bold text-sm">100 Transações</span>
+                            </div>
+                            <input type="range" id="sim-qtd" min="10" max="1000" value="100" step="10" 
+                                class="w-full h-3 bg-slate-900 rounded-lg appearance-none cursor-pointer accent-cyber-emerald">
+                            <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-2">
+                                <span>10 vendas</span>
+                                <span>500 vendas</span>
+                                <span>1.000 vendas</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 text-xs font-mono text-slate-400">
+                            Fórmula de Custos: <span class="text-white">10.000 Kz/mês (fixo) + 70 Kz por venda concluída</span>.
+                        </div>
+
+                    </div>
+
+                    <!-- Hologram Results Right -->
+                    <div class="lg:col-span-5 bg-cyber-dark p-6 sm:p-8 rounded-2xl border border-cyber-emerald/30 space-y-6 shadow-cyber-card">
+                        
+                        <div class="border-b border-slate-800 pb-4">
+                            <span class="text-xs font-mono text-slate-400 uppercase">FATURAMENTO BRUTO</span>
+                            <div id="res-bruto" class="text-3xl font-black font-mono text-white mt-1">500.000 Kz</div>
+                        </div>
+
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Mensalidade KwanzaPay:</span>
+                                <span class="text-white font-bold">10.000 Kz</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Taxas (<span id="res-qtd-vendas">100</span> × 70 Kz):</span>
+                                <span id="res-taxa-total" class="text-cyber-orange font-bold">7.000 Kz</span>
+                            </div>
+                            <div class="flex justify-between text-cyber-orange pt-2 border-t border-slate-800">
+                                <span>Custo Total do Serviço:</span>
+                                <span id="res-custo-total" class="font-bold">17.000 Kz</span>
+                            </div>
+                        </div>
+
+                        <!-- Result Net Hero Box -->
+                        <div class="bg-cyber-emerald/10 border-2 border-cyber-emerald p-5 rounded-2xl text-center shadow-neon-emerald">
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-cyber-emerald font-bold">VALOR LÍQUIDO FINAL PARA SI</span>
+                            <div id="res-liquido" class="text-3xl font-black font-mono text-cyber-emeraldGlow mt-1 text-glow-emerald">483.000 Kz</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECÇÃO TABELA DE PREÇOS TRANSPARENTE -->
+    <section id="precos" class="py-24 bg-cyber-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-mono text-cyber-orange uppercase tracking-widest">TRANSPARÊNCIA SEM SURPRESAS</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Investimento Limpo</h2>
+                <p class="text-slate-400 text-base">Sem taxas escondidas nem comissões sobre transações que falhem.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                
+                <!-- Card Mensalidade -->
+                <div class="glass-cyber p-8 rounded-3xl border border-slate-800 text-center space-y-4 relative">
+                    <span class="text-xs font-mono text-slate-400 uppercase">ASSINATURA DA PLATAFORMA</span>
+                    <div class="text-4xl sm:text-5xl font-black text-white font-mono">
+                        10.000 <span class="text-lg text-cyber-emerald font-bold">Kz/mês</span>
+                    </div>
+                    <p class="text-slate-400 text-xs font-light">
+                        Mensalidade fixa que garante o funcionamento da aplicação, suporte e atualizações.
+                    </p>
+                </div>
+
+                <!-- Card Taxa Transação -->
+                <div class="glass-cyber-orange p-8 rounded-3xl border border-cyber-orange/40 text-center space-y-4 relative shadow-neon-orange">
+                    <div class="absolute -top-3 right-6 bg-cyber-orange text-white text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase">
+                        APENAS SE VENDER
+                    </div>
+                    <span class="text-xs font-mono text-cyber-orange uppercase">TAXA POR PAGAMENTO</span>
+                    <div class="text-4xl sm:text-5xl font-black text-white font-mono">
+                        + 70 <span class="text-lg text-cyber-orange font-bold">Kz</span>
+                    </div>
+                    <p class="text-slate-300 text-xs font-light">
+                        Cobrado exclusivamente por pagamento concluído. Pagamentos falhados geram 0 Kz de taxa.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO DE DEMONSTRAÇÃO / CAPTAÇÃO -->
+    <section id="demonstracao" class="py-24 bg-cyber-black relative cyber-grid">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Form CTA Left -->
+                <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 text-cyber-orange font-mono text-xs uppercase tracking-widest">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                        PRÓXIMO PASSO
+                    </div>
+                    
+                    <h2 class="text-4xl sm:text-5xl font-black text-white leading-tight">
+                        O seu negócio. <br/>
+                        <span class="text-cyber-orange text-glow-orange">O próximo pagamento.</span>
+                    </h2>
+
+                    <p class="text-slate-400 text-base font-light">
+                        Solicite uma demonstração acompanhada pela nossa equipa técnica. Veja o KwanzaPay a funcionar ao vivo no seu telemóvel.
+                    </p>
+
+                    <div class="space-y-3 font-mono text-xs text-slate-300 pt-2">
+                        <div class="flex items-center gap-3 justify-center lg:justify-start">
+                            <i data-lucide="check" class="w-4 h-4 text-cyber-emerald"></i>
+                            Ativação rápida para negócios em Angola
+                        </div>
+                        <div class="flex items-center gap-3 justify-center lg:justify-start">
+                            <i data-lucide="check" class="w-4 h-4 text-cyber-emerald"></i>
+                            Acompanhamento presencial ou online
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Box Right -->
+                <div class="lg:col-span-7">
+                    <div class="glass-cyber p-8 sm:p-10 rounded-3xl border border-cyber-emerald/40 shadow-neon-emerald max-w-xl mx-auto">
+                        
+                        <form id="demo-form" onsubmit="submitForm(event)" class="space-y-5 font-mono">
+                            <div>
+                                <label class="block text-xs text-slate-300 uppercase mb-2">Seu Nome / Responsável</label>
+                                <input type="text" required placeholder="Ex: João Manuel" 
+                                    class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyber-emerald transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs text-slate-300 uppercase mb-2">Nome do Comercial / Loja</label>
+                                <input type="text" required placeholder="Ex: Supermercado Luanda / Boutique E-commerce" 
+                                    class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyber-emerald transition-colors">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs text-slate-300 uppercase mb-2">Telemóvel / WhatsApp</label>
+                                    <input type="tel" required placeholder="+244 9XX XXX XXX" 
+                                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyber-emerald transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-slate-300 uppercase mb-2">Província / Cidade</label>
+                                    <input type="text" required placeholder="Ex: Luanda, Benguela..." 
+                                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyber-emerald transition-colors">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-neon-shimmer w-full bg-cyber-orange hover:bg-cyber-orangeGlow text-white font-bold py-4 rounded-xl shadow-neon-orange transition-all text-sm tracking-wider uppercase flex items-center justify-center gap-2 border border-cyber-orangeGlow/60 mt-4">
+                                <span>SOLICITAR DEMONSTRAÇÃO</span>
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </form>
+
+                        <!-- Notification Message Box -->
+                        <div id="form-msg" class="hidden mt-6 p-4 bg-cyber-emerald/15 border border-cyber-emerald text-cyber-emeraldGlow rounded-xl text-center text-xs font-mono">
+                            ✓ SOLICITAÇÃO ENVIADA COM SUCESSO! A EQUIPA KWANZAPAY ENTRARÁ EM CONTACTO.
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER FUTURISTA -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 font-mono text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-cyber-navy border border-cyber-emerald/40 flex items-center justify-center text-white font-bold">K</div>
+                    <div>
+                        <span class="font-bold text-white text-sm">KwanzaPay</span>
+                        <span class="text-[10px] text-cyber-emerald block">UMA SOLUÇÃO ECOMULTI</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6 text-slate-300">
+                    <a href="#como-funciona" class="hover:text-cyber-emerald transition-colors">COMO FUNCIONA</a>
+                    <a href="#mercado" class="hover:text-cyber-emerald transition-colors">MERCADO</a>
+                    <a href="#simulador" class="hover:text-cyber-emerald transition-colors">SIMULADOR</a>
+                    <a href="#precos" class="hover:text-cyber-emerald transition-colors">PREÇOS</a>
+                </div>
+            </div>
+
+            <div class="text-[10px] text-slate-500 leading-relaxed max-w-4xl space-y-2">
+                <p>* Referências a MULTICAIXA Express, EMIS e KWIK destinam-se a contextualização do mercado angolano de meios de pagamento e interoperabilidade esperada.</p>
+                <p>* Os valores e simulações são indicativos. A integração final dependerá dos termos contratualizados.</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-600 text-[11px]">
+                <p>&copy; 2026 KwanzaPay / ECOMULTI. Todos os direitos reservados.</p>
+                <p>Tecnologia Financeira para Angola 🇦🇴</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT DE EFEITOS FUTURISTAS & INTERATIVIDADE -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. CANVAS DE PARTÍCULAS NEURAIS FUTURISTAS
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const numParticles = Math.min(width < 768 ? 25 : 60, 80);
+
+        for (let i = 0; i < numParticles; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: (Math.random() - 0.5) * 0.8,
+                radius: Math.random() * 2 + 1,
+                color: Math.random() > 0.4 ? '#27D68B' : '#FF6A00'
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = p.color;
+                ctx.fill();
+
+                // Draw Neural Lines between close particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(39, 214, 139, ${1 - dist / 120})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // 2. 3D TILT EFFECT NO PHONE MOCKUP HERO
+        const tiltCard = document.getElementById('hero-tilt-card');
+        if (tiltCard && window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                const centerX = window.innerWidth / 2;
+                const centerY = window.innerHeight / 2;
+                
+                const rotateX = ((clientY - centerY) / centerY) * -12;
+                const rotateY = ((clientX - centerX) / centerX) * 12;
+
+                tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+        }
+
+        // 3. CONTADORES NUMÉRICOS ANIMADOS COM SCROLL OBSERVER
+        function animateCounter(id, start, end, duration, decimals = 0) {
+            const obj = document.getElementById(id);
+            if (!obj) return;
+            let startTimestamp = null;
+            
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = progress * (end - start) + start;
+                obj.innerHTML = decimals > 0 ? value.toFixed(decimals) : Math.floor(value);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        let animatedStats = false;
+        const mercadoSec = document.getElementById('mercado');
+        window.addEventListener('scroll', () => {
+            if (!mercadoSec) return;
+            const rect = mercadoSec.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.75 && !animatedStats) {
+                animatedStats = true;
+                animateCounter('counter-users', 0, 3.2, 2000, 1);
+                animateCounter('counter-growth', 0, 55.3, 2000, 1);
+            }
+        });
+
+        // 4. SIMULADOR CALCULADORA DE GANHOS EM TEMPO REAL
+        const simValorInput = document.getElementById('sim-valor');
+        const simQtdInput = document.getElementById('sim-qtd');
+        const simQtdLabel = document.getElementById('sim-qtd-label');
+
+        const resBruto = document.getElementById('res-bruto');
+        const resQtdVendas = document.getElementById('res-qtd-vendas');
+        const resTaxaTotal = document.getElementById('res-taxa-total');
+        const resCustoTotal = document.getElementById('res-custo-total');
+        const resLiquido = document.getElementById('res-liquido');
+
+        function formatKz(val) {
+            return new Intl.NumberFormat('pt-AO').format(Math.round(val)) + ' Kz';
+        }
+
+        function updateSimulador() {
+            const valor = parseFloat(simValorInput.value) || 0;
+            const qtd = parseInt(simQtdInput.value) || 0;
+
+            const mensalidade = 10000;
+            const taxaUnit = 70;
+
+            const bruto = valor * qtd;
+            const totalTaxas = qtd * taxaUnit;
+            const custoTotal = mensalidade + totalTaxas;
+            const liquido = bruto - custoTotal;
+
+            simQtdLabel.textContent = `${qtd} Transações`;
+            resBruto.textContent = formatKz(bruto);
+            resQtdVendas.textContent = qtd;
+            resTaxaTotal.textContent = formatKz(totalTaxas);
+            resCustoTotal.textContent = formatKz(custoTotal);
+            resLiquido.textContent = formatKz(liquido > 0 ? liquido : 0);
+        }
+
+        if (simValorInput && simQtdInput) {
+            simValorInput.addEventListener('input', updateSimulador);
+            simQtdInput.addEventListener('input', updateSimulador);
+            updateSimulador();
+        }
+
+        // 5. MOBILE MENU TOGGLE
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // 6. FORM SUBMISSION HANDLER
+        function submitForm(e) {
+            e.preventDefault();
+            const form = document.getElementById('demo-form');
+            const msg = document.getElementById('form-msg');
+            form.reset();
+            msg.classList.remove('hidden');
+            setTimeout(() => msg.classList.add('hidden'), 5000);
+        }
+    </script>
+</body>
+</html>
